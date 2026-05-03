@@ -8,12 +8,60 @@ import iziToast from 'izitoast';
 // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
 
-// const SLBInstance = new SimpleLightbox();
+const galleryList = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
+const SLBInstance = new SimpleLightbox('.gallery-item', {
+  sourceAttr: 'data-origin',
+  captionsData: 'alt',
+});
 
-export function createGallery(images) {}
-export function clearGallery() {}
-export function showLoader() {}
-export function hideLoader() {}
+export function createGallery(images) {
+  galleryList.innerHTML = images
+    .map(
+      ({
+        webformatURL: preview,
+        largeImageURL: origin,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) => {
+        return `<li class="gallery-item" data-origin="${origin}">
+              <img src='${preview}' alt='${tags}' />
+              <div class="img-desc-container">
+                <div class="img-desc-wrapper">
+                    <p class="img-desc-titles">Likes</p>
+                    <p>${likes}</p>
+                </div>
+                <div class="img-desc-wrapper">
+                    <p class="img-desc-titles">Views</p>
+                    <p>${views}</p>
+                </div>
+                <div class="img-desc-wrapper">
+                    <p class="img-desc-titles">Comments</p>
+                    <p>${comments}</p>
+                </div>
+                <div class="img-desc-wrapper">
+                    <p class="img-desc-titles">Downloads</p>
+                    <p>${downloads}</p>
+                </div>
+              </div>
+          </li>`;
+      }
+    )
+    .join('');
+  SLBInstance.refresh();
+}
+export function clearGallery() {
+  galleryList.innerHTML = '';
+}
+export function showLoader() {
+  loader.classList.add('is-open');
+}
+export function hideLoader() {
+  loader.classList.remove('is-open');
+}
 export function showError(message) {
   iziToast.show({
     message,

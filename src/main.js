@@ -13,6 +13,8 @@ form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
+  clearGallery();
+  showLoader();
   const input = event.target.elements.searchtext;
 
   if (input.value.trim() === '') {
@@ -28,11 +30,13 @@ function handleSubmit(event) {
         );
         return;
       }
+      createGallery(data);
     })
     .catch(error => {
       showError(error.message);
     })
     .finally(() => {
+      hideLoader();
       event.target.reset();
     });
 }
