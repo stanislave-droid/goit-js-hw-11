@@ -14,13 +14,14 @@ form.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
   clearGallery();
-  showLoader();
   const input = event.target.elements.searchtext;
 
   if (input.value.trim() === '') {
     console.log('Your input is empty');
     return;
   }
+
+  showLoader();
 
   getImagesByQuery(input.value.trim())
     .then(data => {
