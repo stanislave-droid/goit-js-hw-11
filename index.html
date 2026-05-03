@@ -4,9 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/goit-js-hw-11/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Pixabay Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..500&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" crossorigin src="/goit-js-hw-11/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-11/assets/index-yULRiGnq.css">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-B3be6uVD.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-11/assets/vendor-CWKLx11g.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-11/assets/index-BMTWR45A.css">
   </head>
   <body>
     <header class="header">
@@ -16,6 +24,17 @@
 
     <main>
       <!-- Loads the specified .html file -->
+      <form class="form">
+        <label>
+          <input
+            type="text"
+            name="searchtext"
+            placeholder="Search images..."
+            required
+          />
+        </label>
+        <button type="submit">Search</button>
+      </form>
     </main>
 
     <footer class="footer">
