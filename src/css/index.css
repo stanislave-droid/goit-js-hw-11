@@ -1,0 +1,46 @@
+.form {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form > label > input {
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  padding: 7px 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  transition: border 0.2s ease-in-out;
+  outline: none;
+}
+
+.form > label > input:hover {
+  border: 1px solid #000;
+}
+
+.form > label > input:focus {
+  border: 1px solid #4e75ff;
+}
+
+.form > button {
+  border-radius: 8px;
+  border: none;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background-color: #4e75ff;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.form > button:hover {
+  background-color: #6c8cff;
+}

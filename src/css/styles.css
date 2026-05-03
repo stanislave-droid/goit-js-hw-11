@@ -12,5 +12,6 @@
 
 /* Sections style */
 @import url('./header.css');
+@import url('./index.css');
 @import url('./back-link.css');
 @import url('./footer.css');

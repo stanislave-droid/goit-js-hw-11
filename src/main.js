@@ -1,0 +1,38 @@
+import { getImagesByQuery } from './js/pixabay-api';
+import {
+  createGallery,
+  clearGallery,
+  showLoader,
+  hideLoader,
+  showError,
+} from './js/render-functions';
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const input = event.target.elements.searchtext;
+
+  if (input.value.trim() === '') {
+    console.log('Your input is empty');
+    return;
+  }
+
+  getImagesByQuery(input.value.trim())
+    .then(data => {
+      if (!data.length) {
+        showError(
+          'Sorry, there are no images matching your search query. Please try again!'
+        );
+        return;
+      }
+    })
+    .catch(error => {
+      showError(error.message);
+    })
+    .finally(() => {
+      event.target.reset();
+    });
+}
