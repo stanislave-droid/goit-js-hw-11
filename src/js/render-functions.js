@@ -20,7 +20,7 @@ export function showError(message) {
     backgroundColor: 'red',
     messageColor: 'white',
     maxWidth: 432,
-    iconUrl: '/img/error-icon.svg',
+    iconUrl: './img/error-icon.svg',
     position: 'bottomRight',
   });
 }
